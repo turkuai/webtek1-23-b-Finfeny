@@ -1,11 +1,12 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Counter from "./components/Counter";
+import { useState } from "react";
 
 function App() {
     const message1 = "Hello class!"
     const message2 = "mornig!"
-    const showMessage = false
+    const showMessage = true
     
     return (
         <>
@@ -26,5 +27,4 @@ function App() {
         </>
     );
 }
-
 export default App;
