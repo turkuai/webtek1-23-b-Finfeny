@@ -1,6 +1,8 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Counter from "./components/Counter";
+import "./components/RecipeCard"
+import RecipeCard from "./components/RecipeCard";
 
 function App() {
     const message1 = "Hello class!"
@@ -10,33 +12,11 @@ function App() {
     return (
         <>
             <div>
-                <Container className="text-center py-2">
-                    <Row>
-                        <Col>
-                            <h1>{showMessage ? message1 : message2}</h1>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <Counter count={2}/>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <Counter count={2}/>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <Counter count={2}/>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <Counter count={2}/>
-                        </Col>
-                    </Row>
-                </Container>
+                <RecipeCard
+                    title="My awesome kebab"
+                    desc="Very tasty kebab with lamb meat and hot spices, which we can cook on the grill in the winter when outside is freezing cracking show and inside the fire cracks in the stove"
+                    picurl="https://images.pexels.com/photos/8963961/pexels-photo-8963961.jpeg"
+                />
             </div>
         </>
     );
