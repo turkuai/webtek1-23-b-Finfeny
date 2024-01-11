@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { useState } from 'react';
+import "./Counter.css";
 
 function Counter(property) {
     
@@ -13,8 +14,8 @@ function Counter(property) {
 
     return (
         <div>
-            <Container style={{paddingBottom: "15px"}}>
-                <Row className="justify-content-md-center" style={{width: "fit-content", border: "1px solid  #c1c1c1", padding: "10px", borderRadius: "2px"}}>
+            <Container id="container">
+                <Row id="row">
                     <Col md="auto">
                         <Button onClick={() => setCount(count - 1)}>-</Button>
                     </Col>

@@ -1,7 +1,6 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Counter from "./components/Counter";
-import { useState } from "react";
 
 function App() {
     const message1 = "Hello class!"

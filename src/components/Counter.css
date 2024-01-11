@@ -1,0 +1,13 @@
+#container
+{
+    padding: 10px;
+}
+
+#row
+{
+    justify-content: center;
+    width: fit-content;
+    border: 1px solid #c1c1c1;
+    padding: 10px;
+    border-radius: 2px;
+}
