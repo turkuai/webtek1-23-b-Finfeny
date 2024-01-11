@@ -13,12 +13,12 @@ function Counter(property) {
 
     return (
         <div>
-            <Container>
-                <Row className="justify-content-md-center">
+            <Container style={{paddingBottom: "15px"}}>
+                <Row className="justify-content-md-center" style={{width: "fit-content", border: "1px solid  #c1c1c1", padding: "10px", borderRadius: "2px"}}>
                     <Col md="auto">
-                        <Button onChange={() => setCount(count - 1)}>-</Button>
+                        <Button onClick={() => setCount(count - 1)}>-</Button>
                     </Col>
-                    <Col md="auto">
+                    <Col md="auto" style={{paddingInline: "30px"}}>
                         {count}
                     </Col>
                     <Col md="auto">

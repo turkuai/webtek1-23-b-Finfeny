@@ -22,6 +22,21 @@ function App() {
                             <Counter count={2}/>
                         </Col>
                     </Row>
+                    <Row>
+                        <Col>
+                            <Counter count={2}/>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <Counter count={2}/>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <Counter count={2}/>
+                        </Col>
+                    </Row>
                 </Container>
             </div>
         </>
