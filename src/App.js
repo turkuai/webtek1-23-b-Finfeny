@@ -4,6 +4,7 @@ import Counter from "./components/Counter";
 import "./components/RecipeCard"
 import RecipeCard from "./components/RecipeCard";
 import RecipeItem from "./components/RecipeItem";
+import ListGroup from "./components/ListGroup"
 
 function App() {
     const message1 = "Hello class!"
@@ -29,11 +30,8 @@ function App() {
                     />
                     </Col>
                 </Row>
-                <Row>
-                    <RecipeItem
-                        name="Hot chili, tsp"
-                        amount={3}
-                    />
+                <Row style={{padding: "30px"}}>
+                    <ListGroup></ListGroup>
                 </Row>
             </div>
         </>
