@@ -15,6 +15,9 @@ function App() {
     return (
         <>
             <div>
+                <Row>
+                    <Counter></Counter>
+                </Row>
                 <Row style={{paddingTop: "20px"}}>
                     <Col md="auto" style={{paddingLeft: "30px"}}>
                     <RecipeCard
