@@ -5,6 +5,7 @@ import "./components/RecipeCard"
 import RecipeCard from "./components/RecipeCard";
 import RecipeItem from "./components/RecipeItem";
 import ListGroup from "./components/ListGroup"
+import RecipeDialog from "./components/RecipeDialog"
 
 function App() {
     const message1 = "Hello class!"
@@ -31,7 +32,11 @@ function App() {
                     </Col>
                 </Row>
                 <Row style={{padding: "30px"}}>
-                    <ListGroup></ListGroup>
+                    <RecipeDialog
+                        title="My awesome kebab"
+                        picurl="https://images.pexels.com/photos/8963961/pexels-photo-8963961.jpeg"
+                        desc="Very tasty kebab with lamb meat and hot spices, which we can cook on the grill in the winter when outside is freezing cracking show and inside the fire cracks in the stove."
+                    />
                 </Row>
             </div>
         </>
