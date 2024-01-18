@@ -26,12 +26,9 @@ function RecipeItem({ name, amount }) {
                 }
                 <Col hidden={edit}>{nameValue}</Col>
                 <Col style={{textAlign: "center"}} hidden={edit}>{amountValue}</Col>
-                <Col>
-                    <Button variant="primary" onClick={toggle} hidden={edit}>
-                    <i class="bi bi-pencil-square"></i>
-                    </Button>
-                    <Button variant="success" onClick={toggle}  hidden={!edit}>
-                    <i class="bi bi-check-square"></i>
+                <Col>         
+                    <Button variant={edit ? "success" : "primary"} onClick={toggle}>
+                    <i class={edit ?  "bi bi-check-square" : "bi bi-pencil-square"}></i>
                     </Button>
                 </Col>
             </Row>
