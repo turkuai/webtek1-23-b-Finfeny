@@ -3,13 +3,13 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import { useState } from 'react';
 import "./Counter.css";
 
-function Counter(property) {
-    
-    const [count, setCount] = useState(0);
+function Counter({value, onChange}) {
 
-    function plus()
-    {
+    const [count, setCount] = useState(value);
+
+    function plus() {
         setCount(count + 1);
+        onChange(count + 1)
     }
 
     return (
@@ -17,9 +17,13 @@ function Counter(property) {
             <Container id="container">
                 <Row id="row">
                     <Col md="auto">
-                        <Button onClick={() => setCount(count - 1)}>-</Button>
+                        <Button onClick={() => {
+                            setCount(count - 1);
+                            onChange(count - 1)
+                        }}>-
+                        </Button>
                     </Col>
-                    <Col md="auto" style={{paddingInline: "30px"}}>
+                    <Col md="auto" /*style={{paddingInline: "0px"}}*/>
                         {count}
                     </Col>
                     <Col md="auto">
