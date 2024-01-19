@@ -12,11 +12,9 @@ function RecipeDialog({title, desc, picurl, show, setShow}) {
   
   const [editDesc, setEditDesc] = useState(false);
   const toggleDesc = () => setEditDesc(!editDesc);
-  const [descValue, setDescValue] = useState(title);
-  
-  const [undoDesc, setDescUndo] = useState(false);
-  const toggleDescUndo = () => setEditDesc(!editDesc);
-  const [descUndoValue, setDescUndoValue] = useState(title);
+  const [descValue, setDescValue] = useState(desc);
+
+  const ref = useRef(desc);
 
   return (
     <div>
@@ -35,7 +33,7 @@ function RecipeDialog({title, desc, picurl, show, setShow}) {
             <Button variant={editDesc ? "success" : "primary"} onClick={toggleDesc} className="mb-3">
             <i class={editDesc ? "bi bi-check-square" : "bi bi-pencil-square"}></i>
             </Button>
-            <Button hidden={!editDesc} variant="light" onClick={toggleDescUndo} className="mb-3" style={{ marginLeft: "10px" }}>
+            <Button hidden={!editDesc} variant="light" onClick={() => {console.log(ref.current); setDescValue(ref.current)}} className="mb-3" style={{ marginLeft: "10px" }}>
             <i class="bi bi-arrow-counterclockwise"></i>
             </Button>
             <ListGroup></ListGroup>
