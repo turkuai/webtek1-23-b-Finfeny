@@ -1,12 +1,17 @@
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import "./Counter.css";
 
 function Counter({value, onChange}) {
 
     const [count, setCount] = useState(value);
 
+    React.useEffect()
+    {
+        
+    }
+    
     function plus() {
         setCount(count + 1);
         onChange(count + 1);
