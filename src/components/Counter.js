@@ -9,7 +9,7 @@ function Counter({value, onChange}) {
 
     function plus() {
         setCount(count + 1);
-        onChange(count + 1)
+        onChange(count + 1);
     }
 
     return (
