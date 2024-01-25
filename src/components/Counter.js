@@ -6,11 +6,6 @@ import "./Counter.css";
 function Counter({value, onChange}) {
 
     const [count, setCount] = useState(value);
-
-    React.useEffect()
-    {
-        
-    }
     
     function plus() {
         setCount(count + 1);

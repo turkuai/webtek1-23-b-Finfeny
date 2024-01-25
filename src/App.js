@@ -11,6 +11,7 @@ import Header from "./sivu/Header"
 import Ravintola from "./sivu/Ravintola"
 import Etusivu from "./sivu/Etusivu"
 import Meistä from "./sivu/Meistä";
+import TicTacToe from "./sivu/TicTacToe";
 function App() {
     
     return (
@@ -21,6 +22,7 @@ function App() {
                             <Route path="/Etusivu" element={<Etusivu/>}/>
                             <Route path="/Ravintola" element={<Ravintola/>}/>
                             <Route path="/Meistä" element={<Meistä/>}/>
+                            <Route path="/TicTacToe" element={<TicTacToe/>}/>
                         </Routes>
                 </Router>
             </div>

@@ -14,7 +14,6 @@ function RecipeDialog({title, desc, picurl, show, setShow}) {
   const toggleDesc = () => {
     setEditDesc(!editDesc);
     ref.current=descValue;
-    console.log(descValue)
   }
 
   const ref = useRef(descValue);
