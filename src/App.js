@@ -12,6 +12,7 @@ import Ravintola from "./sivu/Ravintola"
 import Etusivu from "./sivu/Etusivu"
 import Meistä from "./sivu/Meistä";
 import TicTacToe from "./sivu/TicTacToe";
+import StudentCard from "./components/StudentCard";
 function App() {
     
     return (
@@ -23,6 +24,7 @@ function App() {
                             <Route path="/Ravintola" element={<Ravintola/>}/>
                             <Route path="/Meistä" element={<Meistä/>}/>
                             <Route path="/TicTacToe" element={<TicTacToe/>}/>
+                            <Route path="/StudentCard" element={<StudentCard/>}/>
                         </Routes>
                 </Router>
             </div>

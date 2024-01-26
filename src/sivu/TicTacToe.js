@@ -1,8 +1,6 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import { useState } from "react";
 import TicTacToeBoard from "../components/TicTacToeBoard";
-import TicTacToeCard from "../components/TicTacToeCard";
 
 function TicTacToe()
 {
