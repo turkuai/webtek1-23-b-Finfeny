@@ -11,6 +11,7 @@ function Etusivu()
                 <Link className="Link me-3" to="/Meistä">Meistä</Link>
                 <Link className="Link me-3" to="/TicTacToe">TicTacToe</Link>
                 <Link className="Link me-3" to="/StudentCard">StudentCard</Link>
+                <Link className="Link me-3" to="/ImperativeHandler">ImperativeHandler</Link>
             </div>
     )
 }
