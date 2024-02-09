@@ -1,6 +1,5 @@
 import React from 'react'
 import {useState} from "react";
-import StudentCard from '../components/StudentCard';
 
 export const Topic = {
     Math: "Math",
