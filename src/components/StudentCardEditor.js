@@ -2,40 +2,39 @@ import React from "react";
 import { useRef } from "react";
 import { Topic, TopicList, Grade, GradeList, defaultGradesData } from "../sivu/StudentGrades";
 
-export default function StudentCardEditor({name, email, users, setName, setEmail, setUsers}) {
+export default function StudentCardEditor({ state, dispatch }) {
 
-    //const [name, setName] = React.useState("");
-    //const [email, setEmail] = React.useState("");
-    //const [users, setUsers] = React.useState(defaultGradesData)
     const ref = useRef(4);
 
-    function setTopic(id, value) {
-        console.log("setTopic:", value);
+    /*function setTopic(id, value) {
+        //console.log("setTopic:", value);
 
-        const newUsers = users.map((user) => {
-            if (user.id == id) {
-                return { ...user, topic: value };
+        const newUsers = users.map((item) => {
+            if (item.id == id) {
+                return { ...item, topic: value };
             } else {
-                return user;
+                return item;
             }
         });
 
         setUsers(newUsers);
     }
+    
 
     function setGrade(id, value) {
-        console.log("setGrade:", value);
+        //console.log("setGrade:", value);
 
-        const newUsers = users.map((user) => {
-            if (user.id == id) {
-                return { ...user, grade: value };
+        const newUsers = users.map((item) => {
+            if (item.id == id) {
+                return { ...item, grade: value };
             } else {
-                return user;
+                return item;
             }
         });
 
         setUsers(newUsers);
     }
+    */
 
     function handleAddNewUser() {
         const newUsers = [...users, {
@@ -44,28 +43,31 @@ export default function StudentCardEditor({name, email, users, setName, setEmail
             grade: Grade.A
         }];
         ref.current = ref.current + 1;
-        console.log("ref:", ref.current);
-        console.log("newUsers:", newUsers);
+        //console.log("ref:", ref.current);
+        //console.log("newUsers:", newUsers);
         setUsers(newUsers)
     }
 
-    function mapUser(user) {
+    function mapItem(item) {
         return (
-            <div key={user.id}>
+            <div key={item.id}>
                 &#x2049;
-                <select value={user.topic} onChange={(event) => setTopic(user.id, event.target.value)} style={{ margin: "7px" }}>
+                <select value={item.topic} onChange={(event) => {
+                    dispatch({ type: "item", id: item.id, value: event.target.value});
+                    console.log(event.target.value)
+                }} style={{ margin: "7px" }}>
                     {
                         TopicList.map(topic => <option value={topic}>{topic}</option>)
                     }
                 </select>
-                <select value={user.grade} onChange={(event) => setGrade(user.id, event.target.value)} style={{ margin: "7px" }}>
+                <select value={item.grade} onChange={(event) => dispatch({ type: "item" }, event.target.value)} style={{ margin: "7px" }}>
                     {
                         GradeList.map(grade => <option value={grade}>{grade}</option>)
                     }
                 </select>
                 <button onClick={(event) => {
-                    const filterdUser = users.filter((item) => item.id != user.id);
-                    console.log(filterdUser);
+                    const filterdUser = state.items.filter((element) => element.id != item.id);
+                    //console.log(filterdUser);
                     setUsers(filterdUser);
                 }}
                     style={{ margin: "7px" }}>-</button>
@@ -73,21 +75,21 @@ export default function StudentCardEditor({name, email, users, setName, setEmail
         )
     }
 
-    return  (
+    return (
         <div style={{ padding: "20px", borderStyle: "solid", borderWidth: "2px", marginTop: "15px" }}>
             <h2>Editor</h2>
             <br />
             <p>Name:</p>
-            <input type="text" onChange={(event) => setName(event.target.value)}></input>
+            <input type="text" value={state.name} onChange={(event) => dispatch({ type: 'name', name: event.target.value })}></input>
             <br />
             <br />
             <p>Email:</p>
-            <input type="email" onChange={(event) => setEmail(event.target.value)}></input>
+            <input type="email" value={state.email} onChange={(event) => dispatch({ type: 'email', email: event.target.value })}></input>
             <br />
             <br />
             <p>Grades:</p>
             <ul >
-                {users.map(mapUser)}
+                {state.items.map(mapItem)}
             </ul>
             <button onClick={handleAddNewUser} style={{ width: "100%" }}>+</button>
         </div>

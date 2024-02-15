@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useReducer } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import ListGroup from "./ListGroup"
@@ -17,13 +17,17 @@ function RecipeDialog({title, desc, picurl, show, setShow}) {
   }
 
   const ref = useRef(descValue);
+  const [state, dispatch] = useReducer(reducer, {
+    title: ""
+  });
 
   return (
     <div>
       <Modal show={show}>
         <Modal.Header /*closeButton={toggle}*/>
-          <Form.Control hidden={!editTitle} type="text" value={titleValue} onChange={(eventTitle) => {console.log(eventTitle.target.value);
-            setTitleValue(eventTitle.target.value)
+          <Form.Control hidden={!editTitle} type="text" value={state.title} onChange={(eventTitle) => {
+            dispatch({type: "UpdateTitle", payload: eventTitle.target.value});
+            //(console.log(eventTitle.target.value);
             }}/>
 
           <Modal.Title hidden={editTitle}>{titleValue}</Modal.Title>
@@ -53,6 +57,16 @@ function RecipeDialog({title, desc, picurl, show, setShow}) {
       </Modal>
     </div>
   );
+}
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "updateTitle":
+      console.log( ...state, state, action.payload );
+      return { ...state, title: action.payload };
+    case "updateAmount":
+      return { ...state, amount: action.payload };
+  }
 }
 
 export default RecipeDialog;
