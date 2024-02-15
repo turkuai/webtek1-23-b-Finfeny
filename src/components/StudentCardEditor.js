@@ -34,7 +34,7 @@ export default function StudentCardEditor({ state, dispatch }) {
 
         setUsers(newUsers);
     }
-    */
+    
 
     function handleAddNewUser() {
         const newUsers = [...users, {
@@ -47,29 +47,30 @@ export default function StudentCardEditor({ state, dispatch }) {
         //console.log("newUsers:", newUsers);
         setUsers(newUsers)
     }
+    */
 
     function mapItem(item) {
         return (
             <div key={item.id}>
                 &#x2049;
                 <select value={item.topic} onChange={(event) => {
-                    dispatch({ type: "item", id: item.id, value: event.target.value});
+                    dispatch({ type: "topic", id: item.id, value: event.target.value});
                     console.log(event.target.value)
                 }} style={{ margin: "7px" }}>
                     {
                         TopicList.map(topic => <option value={topic}>{topic}</option>)
                     }
                 </select>
-                <select value={item.grade} onChange={(event) => dispatch({ type: "item" }, event.target.value)} style={{ margin: "7px" }}>
+                <select value={item.grade} onChange={(event) => dispatch({ type: "grade", id: item.id, value: event.target.value})} style={{ margin: "7px" }}>
                     {
                         GradeList.map(grade => <option value={grade}>{grade}</option>)
                     }
                 </select>
-                <button onClick={(event) => {
-                    const filterdUser = state.items.filter((element) => element.id != item.id);
+                <button onClick={(event) => dispatch({ type: "removeItem", id: item.id})
+                    //const filterdUser = state.items.filter((element) => element.id != item.id);
                     //console.log(filterdUser);
-                    setUsers(filterdUser);
-                }}
+                    //setUsers(filterdUser);
+                }
                     style={{ margin: "7px" }}>-</button>
             </div>
         )
@@ -91,7 +92,7 @@ export default function StudentCardEditor({ state, dispatch }) {
             <ul >
                 {state.items.map(mapItem)}
             </ul>
-            <button onClick={handleAddNewUser} style={{ width: "100%" }}>+</button>
+            <button onClick={(event) => dispatch({ type: "newItem"})} style={{ width: "100%" }}>+</button>
         </div>
     );
 }
