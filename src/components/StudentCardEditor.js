@@ -5,6 +5,7 @@ import { Topic, TopicList, Grade, GradeList, defaultGradesData } from "../sivu/S
 export default function StudentCardEditor({ state, dispatch }) {
 
     const ref = useRef(4);
+  //const idRef = useRef(0);
 
     /*function setTopic(id, value) {
         //console.log("setTopic:", value);
