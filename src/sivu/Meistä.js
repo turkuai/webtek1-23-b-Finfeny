@@ -11,7 +11,7 @@ function Meistä()
             </h2>
             <br/>
             <p>
-                Ma ei ymmartaa näitä
+                Bibupapu
             </p>
         </Container>
     )
